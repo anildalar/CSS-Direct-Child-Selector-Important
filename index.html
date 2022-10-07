@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Direct Child Selector > </title>
+        <style>
+            /*
+            Syntax
+            parent > child{
+                
+            }
+            */
+           .parent{
+                /*icanwriteanythinghere*/
+                /* State 1 */
+                width: 400px;
+                height: 400px;
+                background:red;
+                /*
+                    CSS Syntax
+                    transition: property duration timing-function delay|initial|inherit;
+                */
+                transition: background 2s;
+                display: inline-block;
+            }
+            .parent:hover{
+                /* State 2 */
+                background:orange;
+
+            }
+
+
+            .parent > .child {
+                /* State 1 */
+                width: 200px;
+                height: 200px;
+                background:green;
+                transition: all 3s;
+                
+            }
+            .parent > .child:hover {
+                /* State 2 */
+                background:blue;
+            }
+            
+            [data-parent="parent"]{
+                width: 650px;
+                height: 400px;
+                background:purple;
+                display:inline-block;
+            }
+
+            [data-parent="parent"] > [data-child="child"] {
+                /* State 1 */
+                width:100px;
+                height:100px;
+                background:brown;
+                display:inline-block;
+                border-radius: 100px;
+                transition: all 3s linear 0.1s;
+                transform: translate(0px,0px);
+            }
+            div[data-parent="parent"]:hover > div[data-child="child"]{
+                /* State 2 */
+                background:yellow;
+                transform: translate(0px,300px);
+            }
+            .c2{
+                transition: all 3s linear 0.2s !important;
+            }
+            .c3{
+                transition: all 3s linear 0.3s !important;
+            }
+            .c4{
+                transition: all 3s linear 0.3s !important;
+            }
+            .c5{
+                transition: all 3s linear 0.4s !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+
+        <div data-parent="parent">
+            <div data-child="child"></div>
+            <div data-child="child" class="c2"></div>
+            <div data-child="child" class="c3"></div>
+            <div data-child="child" class="c4"></div>
+            <div data-child="child" class="c5"></div>
+        </div>
+    </body>
+</html>
